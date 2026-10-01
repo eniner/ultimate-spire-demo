@@ -4,16 +4,18 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ultimate Spire — feature walkthrough</title>
-  <meta name="description" content="Demo videos of the editors, inventory tool, item icons, 2D/3D zone tools, server file editing, and streamer privacy mode added to Ultimate Spire." />
+  <meta name="description" content="Demo videos and screenshots of Ultimate Spire: PEQ editors, inventory, 2D/3D zones, zone controller, talents, runewords, evolving tables, tasks, and streamer privacy." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="nav">
     <div class="wrap nav-inner">
-          <a class="brand" href="#top">Ultimate Spire</a>
+      <a class="brand" href="#top">Ultimate Spire</a>
       <nav class="nav-links">
         <a href="#features">Features</a>
+        <a href="#addons">New add-ons</a>
         <a href="#videos">Videos</a>
+        <a href="#download">Download</a>
         <a href="https://github.com/eniner/ultimate-spire-demo">GitHub</a>
       </nav>
     </div>
@@ -22,17 +24,18 @@
   <main id="top">
     <section class="hero wrap">
       <p class="kicker">Local EQ emulator studio</p>
-      <h1>Everything added to Ultimate Spire, on video.</h1>
+      <h1>Everything added to Ultimate Spire, on video and in stills.</h1>
       <p class="lede">
         A walkthrough of the PEQ editor hub, item and evolving tools with EQ icons,
         the paperdoll inventory editor, Blackburrow in 2D and 3D, quest/server file
-        editing, and a streamer privacy switch. Recorded on a local copy with private
+        editing, a streamer privacy switch, plus the newer zone-controller builder
+        and talent / trait / runeword editors. Recorded on a local copy with private
         names, hosts, keys, and paths blurred.
       </p>
       <div class="hero-stats">
         <div class="stat"><b>8</b><span>feature clips</span></div>
-        <div class="stat"><b>2D + 3D</b><span>Blackburrow zone tools</span></div>
-        <div class="stat"><b>Icons</b><span>items, classes, races, deities</span></div>
+        <div class="stat"><b>15</b><span>new add-on screenshots</span></div>
+        <div class="stat"><b>ZC + systems</b><span>zones, talents, runewords</span></div>
         <div class="stat"><b>Privacy</b><span>safe for streams and screenshots</span></div>
       </div>
     </section>
@@ -51,7 +54,7 @@
         </article>
         <article class="card">
           <h3>Evolving items</h3>
-          <p>Browse evolution chains, see each level’s item icon, and jump into the chain editor when a row has problems.</p>
+          <p>Targeted tables in order: define the chain in <code>items_evolving_details</code>, then match item columns. Type 4 is zone-kill (zone IDs in subtype, kill count in required amount).</p>
         </article>
         <article class="card">
           <h3>Inventory editor</h3>
@@ -65,7 +68,189 @@
           <h3>Server files + privacy</h3>
           <p>Point Spire at a quests folder (or HTTP host) and edit perl/lua in place. Hide private details blurs names, addresses, keys, passwords, hosts, and paths for streams.</p>
         </article>
+        <article class="card">
+          <h3>Zone Controller</h3>
+          <p>Browse configured Ultimate zone JSON (custom / ignore / depop / loot / items). Bulk create or clone zones, stamp trash/boss/raid tiers, and add custom mobs. Writes JSON only; live memory still reloads from the Perl controller.</p>
+        </article>
+        <article class="card">
+          <h3>Talents / Runewords</h3>
+          <p>Edit the talent catalog, rank buckets, unlock flags, class specializations, trait vendor list, and runeword combo recipes. Preview then write JSON with backups.</p>
+        </article>
+        <article class="card">
+          <h3>Tasks, zones, chrome</h3>
+          <p>Tasks use a searchable table instead of a giant native select. Zone expansions match PEQ (Classic is 1, Kunark is 2). Left-nav pages use the same windows, toolbars, and tables.</p>
+        </article>
       </div>
+    </section>
+
+    <section class="section wrap" id="addons">
+      <h2>New add-ons (stills)</h2>
+      <p class="intro">These shipped after the original video set. Privacy mode is on. Disk paths are hidden.</p>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zone Controller</p>
+          <h3>Configured Ultimate zones</h3>
+          <p>Reads <code>quests/global/ultimatedata</code>. Each row is a zone that already has controller JSON: custom mobs, ignore list, depop list, loot tables, and item kits. Links jump to the talent / unlock registries and the Perl controller.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-zc-zones.png" alt="Zone Controller list of configured Ultimate zones" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zone Controller</p>
+          <h3>Create or clone zone JSON</h3>
+          <p>Make many zone folders at once from a blank template or an existing kit. Pick which files to write (basedata, loot, items, custom, ignore, depop). Preview is dry-run; Write JSON creates backups first.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-zc-builder-create.png" alt="Zone Controller create or clone zone JSON builder" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zone Controller</p>
+          <h3>Apply a trash / boss / raid tier</h3>
+          <p>Stamp level, HP, and hit ranges onto a list of zone IDs. Copy basedata from a donor zone, or type new numbers. Optionally copy that donor’s loot kit. Runtime still uses <code>basedata[type]</code> plus custom <code>_mod</code> / <code>_override</code>.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-zc-builder-tier.png" alt="Zone Controller apply-tier builder" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zone Controller</p>
+          <h3>Batch custom mobs</h3>
+          <p>Add named trash, boss, or raid entries across target zones. Same idea as the in-game controller’s create commands, from Spire, against the JSON files only.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-zc-builder-mobs.png" alt="Zone Controller batch custom mobs builder" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Talent catalog</h3>
+          <p>283 talents from <code>talentdata/talent_catalog.json</code>. Filter by class, edit display name, tree, ranks, cost, pool, and required talents. Preview / Write JSON. Optionally create the matching rank-registry row.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-talents.png" alt="Talent catalog editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Talent rank registry</h3>
+          <p>Bucket keys the server uses for spent ranks. Creating a catalog talent does not add a registry row unless you check that box. Keys follow <code>TalentRank_&lt;class&gt;_&lt;key&gt;</code>.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-ranks.png" alt="Talent rank registry editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Unlock states</h3>
+          <p>Spell-turned-in unlock flags next to the zone JSON. Each row is a bucket key, spell name, and expected value. These are player flags, not per-zone spawn data.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-unlocks.png" alt="Unlock state registry editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Class specializations</h3>
+          <p>Per-class specializations from <code>specializations.json</code>: name, rank count, cost, and description. Warrior Improved Defense is shown with the same fields the server reads.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-specs.png" alt="Class specializations editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Trait vendor catalog</h3>
+          <p>Non-god trait drops the vendor list uses for loot notes — not the item row itself. Item, zone, class mask, and proc. Edit and write back to <code>vendordata</code>.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-traits.png" alt="Trait vendor catalog editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Systems</p>
+          <h3>Runeword recipes</h3>
+          <p>Runtime craft is four runes plus an ethereal base. Local peq does not have the custom runeword tables yet, so Spire edits a JSON catalog. Output ID 0 means the recipe is known and the live item is not filled in. Seed writes a starter catalog from inventory.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-runewords.png" alt="Runeword combo catalog editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Items</p>
+          <h3>Evolving chains — targeted tables</h3>
+          <p>Chain list with icons, type, max level, and problem flags. Open a chain and work two tables in order: details first (type, subtype, required amount), then the item’s evo columns. Type 4 shows zone pills from the subtype list.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-evolving.png" alt="Evolving items chain list with icons" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Items</p>
+          <h3>Evolving chain editor</h3>
+          <p>The order of operations is on the page: define the chain, match the item, restart the zone. Type 99 is stock PEQ and is ignored by the server. Type 4 subtype is comma-separated zone IDs; required amount is the kill count.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/evo-type4-pills.png" alt="Evolving chain editor with type 4 zone pills" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Tasks</p>
+          <h3>Task list redo</h3>
+          <p>The old 900-row native select is gone. Search by ID or title, filter by type, and open a task from a clean table of title, type, duration, and level.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-tasks.png" alt="Redesigned task list table" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zones</p>
+          <h3>Expansion labels fixed</h3>
+          <p>PEQ stores expansion as 1-based (1 = Classic, 2 = Kunark, 3 = Velious). Stock Spire treated those as 0-based, so everyone’s Kunark list showed Velious. Filter Kunark and the column now says The Ruins of Kunark.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/zones-kunark-fixed.png" alt="Zones list filtered to The Ruins of Kunark" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Tools</p>
+          <h3>Calculator windows</h3>
+          <p>Race, class, deity, client version, expansion, augment, and inventory-slot bitmasks each sit in their own window. Click an icon or type a number — both stay in sync. Same chrome as the rest of the left nav.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/calculators-chrome.png" alt="Calculator bitmask windows with EQ icons" />
+        </div>
+      </article>
     </section>
 
     <section class="section wrap" id="videos">
@@ -98,7 +283,7 @@
         <div class="copy">
           <p class="group">Items</p>
           <h3>Evolving item chains</h3>
-          <p>Lists every evolution chain, each level’s item icon, max level, and whether the chain has problems. Open a chain to edit levels, types, and required amounts.</p>
+          <p>Lists every evolution chain, each level’s item icon, max level, and whether the chain has problems. Open a chain to edit levels, types, and required amounts. The stills above show the newer targeted-table editor.</p>
         </div>
         <div class="shot">
           <video controls playsinline muted preload="metadata" poster="videos/poster-03-evolving-items.png" src="videos/03-evolving-items.webm"></video>
@@ -160,6 +345,21 @@
         </div>
       </article>
       <p class="note">Product overview only. This site does not host the emulator, database, or server files. Recorded from a local Ultimate Spire instance with privacy mode on.</p>
+    </section>
+
+    <section class="section wrap" id="download">
+      <h2>Download the Windows exe</h2>
+      <p class="intro">Same drop-in as stock Spire. Put the exe next to <code>eqemu_config.json</code> and run it. Use the Ultimate Spire release, not EQEmu/spire, or auto-update will replace this build with stock.</p>
+      <p class="cta-row">
+        <a class="cta" href="https://github.com/eniner/ultimate-spire/releases/latest">Latest release</a>
+        <a class="cta ghost" href="https://github.com/eniner/ultimate-spire/releases">All releases</a>
+      </p>
+      <ol class="steps">
+        <li>Download <code>spire-windows-amd64.exe.zip</code></li>
+        <li>Unzip <code>spire-windows-amd64.exe</code></li>
+        <li>Put the exe in the same folder as your emulator <code>eqemu_config.json</code></li>
+        <li>Double-click it. Spire opens a browser on a free port between 8090 and 8099</li>
+      </ol>
     </section>
   </main>
 
