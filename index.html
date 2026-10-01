@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ultimate Spire — feature walkthrough</title>
+  <meta name="description" content="Demo videos of the editors, inventory tool, item icons, 2D/3D zone tools, server file editing, and streamer privacy mode added to Ultimate Spire." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-inner">
+          <a class="brand" href="#top">Ultimate Spire</a>
+      <nav class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#videos">Videos</a>
+        <a href="https://github.com/eniner/ultimate-spire-demo">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero wrap">
+      <p class="kicker">Local EQ emulator studio</p>
+      <h1>Everything added to Ultimate Spire, on video.</h1>
+      <p class="lede">
+        A walkthrough of the PEQ editor hub, item and evolving tools with EQ icons,
+        the paperdoll inventory editor, Blackburrow in 2D and 3D, quest/server file
+        editing, and a streamer privacy switch. Recorded on a local copy with private
+        names, hosts, keys, and paths blurred.
+      </p>
+      <div class="hero-stats">
+        <div class="stat"><b>8</b><span>feature clips</span></div>
+        <div class="stat"><b>2D + 3D</b><span>Blackburrow zone tools</span></div>
+        <div class="stat"><b>Icons</b><span>items, classes, races, deities</span></div>
+        <div class="stat"><b>Privacy</b><span>safe for streams and screenshots</span></div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="features">
+      <h2>What these add-ons do</h2>
+      <p class="intro">These are the major pieces added on top of stock Spire so it can be the single local emulator tool.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>PEQ Editors hub</h3>
+          <p>Every PHP editor tab from peqphpeditor, mapped onto local pages. Dedicated tools stay as full pages. The rest open a table editor against the same peq tables.</p>
+        </article>
+        <article class="card">
+          <h3>Items + icons</h3>
+          <p>Search by name, class, race, deity, slot, and flags. Class, race, and deity chips use EQ icons. Result tables and cards show item icons and wearable class icons.</p>
+        </article>
+        <article class="card">
+          <h3>Evolving items</h3>
+          <p>Browse evolution chains, see each level’s item icon, and jump into the chain editor when a row has problems.</p>
+        </article>
+        <article class="card">
+          <h3>Inventory editor</h3>
+          <p>Paperdoll, bags, bank, shared bank, and parcels with item icons. Click a bag to open it, target an empty slot, place or remove items.</p>
+        </article>
+        <article class="card">
+          <h3>Zone 2D + 3D</h3>
+          <p>2D map with spawn markers and placement edit. 3D Atlas loads the Lantern zone mesh, NPCs, and client scenery. Orbit, zoom, wireframe, and lighting toggles.</p>
+        </article>
+        <article class="card">
+          <h3>Server files + privacy</h3>
+          <p>Point Spire at a quests folder (or HTTP host) and edit perl/lua in place. Hide private details blurs names, addresses, keys, passwords, hosts, and paths for streams.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section wrap" id="videos">
+      <h2>Walkthrough clips</h2>
+      <p class="intro">Play each clip in order, or jump to the tool you care about. Private server values stay blurred.</p>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Editors</p>
+          <h3>PEQ Editors hub</h3>
+          <p>The hub lists every editor group: game data, zone/misc, and live server. Full-page tools (items, spells, zones, inventory) sit next to table editors for spawns, doors, traps, forage, and the rest. The clip scrolls the whole catalog.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-01-peq-editors.png" src="videos/01-peq-editors.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Items</p>
+          <h3>Item search with EQ icons</h3>
+          <p>Class, race, and deity filters now carry their EQ icons. Search results keep item icons on the name, and the Classes column shows class icons instead of a long WAR, CLR list. Card view does the same for class and race. Slots and flags stay text because those have no icon set.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-02-items-icons.png" src="videos/02-items-icons.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Items</p>
+          <h3>Evolving item chains</h3>
+          <p>Lists every evolution chain, each level’s item icon, max level, and whether the chain has problems. Open a chain to edit levels, types, and required amounts.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-03-evolving-items.png" src="videos/03-evolving-items.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Characters</p>
+          <h3>Inventory editor</h3>
+          <p>Worn paperdoll, general bags, bank, shared bank, and parcels. Icons sit in the slot boxes. Click a bag to see its contents, select an empty slot, then pick an item to place it. Remove works from worn, bag, bank, and shared. Search cards also show class and race icons.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-04-inventory.png" src="videos/04-inventory.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zones</p>
+          <h3>2D zone editor — Blackburrow</h3>
+          <p>Blackburrow’s 2D map with walls, NPC models, doors, teleports, and zone lines. The clip pans the map, then tabs the zone card through NPCs, Items, Tasks, Sold, Spells, Zone Connections, and Zone. Edit placements can drag spawn2 rows, undo/redo, and save to the local DB. 3D Atlas and quest files are one click away.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-05-zone-2d-blackburrow.png" src="videos/05-zone-2d-blackburrow.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zones</p>
+          <h3>3D Atlas — Blackburrow</h3>
+          <p>Lantern zone mesh, NPC markers, and client scenery. The clip orbits the zone, zooms the camera, and toggles scenery, NPCs, wireframe, and bright lighting. Reset camera returns to the framed view. 2D map is one click away.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-06-zone-3d-blackburrow.png" src="videos/06-zone-3d-blackburrow.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Server</p>
+          <h3>Server file / quest editor</h3>
+          <p>Connect a local folder, mounted share, or HTTP listing. The clip opens a zone quest folder, then a perl file in the syntax editor (save, reload, create new). Disk paths stay blurred. Writable trees can create and save files in place.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-07-server-files.png" src="videos/07-server-files.webm"></video>
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Server</p>
+          <h3>Server config + hide private details</h3>
+          <p>Tabs through World (naming, networking, key, telnet, TCP, loginservers), Zone Server, UCS, Database, and Server Files. Hide private details blurs server names, addresses, keys, passwords, hosts, and file paths so a stream or screenshot does not leak them. The switch stays on across admin pages.</p>
+        </div>
+        <div class="shot">
+          <video controls playsinline muted preload="metadata" poster="videos/poster-08-server-config.png" src="videos/08-server-config.webm"></video>
+        </div>
+      </article>
+      <p class="note">Product overview only. This site does not host the emulator, database, or server files. Recorded from a local Ultimate Spire instance with privacy mode on.</p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">Recorded for a public walkthrough. No live server credentials are shown. <a href="https://github.com/eniner">github.com/eniner</a></div>
+  </footer>
+</body>
+</html>

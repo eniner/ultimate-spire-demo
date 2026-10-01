@@ -1,0 +1,12 @@
+{
+  "name": "ultimate-spire-demo-record",
+  "private": true,
+  "description": "Records local Ultimate Spire feature clips for the public demo site",
+  "scripts": {
+    "record": "node record.mjs",
+    "install-browser": "playwright install chromium"
+  },
+  "dependencies": {
+    "playwright": "^1.63.0"
+  }
+}

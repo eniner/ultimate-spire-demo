@@ -1,0 +1,6 @@
+record/node_modules/
+record/raw/
+record/.auth.json
+.DS_Store
+videos/debug-*.png
+videos/*-error.png
