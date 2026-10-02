@@ -1,6 +1,6 @@
 # Ultimate Spire feature walkthrough
 
-Public demo site for the editors, inventory tool, item icons, 2D/3D zone tools, zone controller, talents / runewords, server file editing, and streamer privacy mode added to local Ultimate Spire.
+Public demo site for the editors, inventory tool, item icons, 2D/3D zone tools, Content Factory, Tier Factory, zone controller, talents / runewords, LDoN, keys / flags, server file editing, and streamer privacy mode added to local Ultimate Spire.
 
 **Site:** https://eniner.github.io/ultimate-spire-demo/
 
@@ -10,7 +10,24 @@ The clickable demo is the same Vue Spire frontend as the local tool, with a read
 
 **Windows exe:** https://github.com/eniner/ultimate-spire/releases/latest
 
-## New add-ons (screenshots)
+## Latest add-ons (screenshots)
+
+1. **Content Factory census** — live zone spawn data with trash / named / raid / ignore, HP, pops, faction, neighbors
+2. **Reserved ID board** — next free IDs at 800000+ (NPC-castable spells stay 50000–65535)
+3. **Item kit studio** — 18×16 class/slot grid, import from a zone's loot
+4. **Dual loot composer** — separate trash and named tables
+5. **One pipeline run** — kit + clones + loot + spell sets + export + reload + probe
+6. **NPC spell-set factory** — clone lists so spell IDs fit the uint16 entry column
+7. **Spell-set editor** — load / edit / save as a new 800000+ list
+8. **Test pawn + give** — spawn a `SPIRE_TEST_` NPC or put minted items on a character
+9. **Tier Factory** — named recipes, stamp or ladder tiers, mint kits in Content Factory
+10. **PEQ Editors hub** — every peqphpeditor tab, including Content Factory and LDoN
+11. **LDoN theme search** — Guk / Miragul / Mistmoore / Rujarkian / Takish zones and adventures
+12. **Item search** — class / race / deity chips and item icons
+13. **Spell browser** — name, SPA, level, class icons
+14. **Zone list** — 1-based expansion labels and Zone Controller JSON links
+
+## Earlier add-ons (screenshots)
 
 1. **Zone Controller** — configured Ultimate zone JSON (custom / ignore / depop / loot / items)
 2. **ZC create / clone** — bulk zone folders from a template or existing kit

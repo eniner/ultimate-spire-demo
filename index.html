@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ultimate Spire — feature walkthrough</title>
-  <meta name="description" content="Demo videos and screenshots of Ultimate Spire: PEQ editors, inventory, 2D/3D zones, zone controller, talents, runewords, evolving tables, tasks, and streamer privacy." />
+  <meta name="description" content="Demo videos and screenshots of Ultimate Spire: Content Factory, Tier Factory, Zone Controller, talents, LDoN, keys/flags, PEQ editors, inventory, 2D/3D zones, and streamer privacy." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,7 +14,8 @@
       <nav class="nav-links">
         <a href="app/">Open the app</a>
         <a href="#features">Features</a>
-        <a href="#addons">New add-ons</a>
+        <a href="#latest">Latest</a>
+        <a href="#addons">Add-ons</a>
         <a href="#videos">Videos</a>
         <a href="#download">Download</a>
         <a href="https://github.com/eniner/ultimate-spire-demo">GitHub</a>
@@ -30,8 +31,9 @@
         The clickable demo is the same Vue Spire UI, running read-only against a
         snapshot of the default EQEmu installer PEQ plus seeded Ultimate catalogs
         and fake admin/server data so every left-nav page and tab has something
-        to click. Clips were recorded on a local copy with private names, hosts,
-        keys, and paths blurred.
+        to click — including Content Factory, Tier Factory, LDoN, and Keys / Flags.
+        Stills were taken on a local copy with private names, hosts, keys, and
+        paths blurred.
       </p>
       <p class="cta-row">
         <a class="cta" href="app/">Open the real app (read-only demo)</a>
@@ -39,8 +41,8 @@
       </p>
       <div class="hero-stats">
         <div class="stat"><b>8</b><span>feature clips</span></div>
-        <div class="stat"><b>15</b><span>new add-on screenshots</span></div>
-        <div class="stat"><b>ZC + systems</b><span>zones, talents, runewords</span></div>
+        <div class="stat"><b>29</b><span>add-on screenshots</span></div>
+        <div class="stat"><b>Content Factory</b><span>census, kits, pipeline, clones</span></div>
         <div class="stat"><b>Privacy</b><span>safe for streams and screenshots</span></div>
       </div>
     </section>
@@ -74,6 +76,14 @@
           <p>Point Spire at a quests folder (or HTTP host) and edit perl/lua in place. Hide private details blurs names, addresses, keys, passwords, hosts, and paths for streams.</p>
         </article>
         <article class="card">
+          <h3>Content Factory</h3>
+          <p>Census a live zone, cherry-pick trash vs named, mint item kits and dual loot tables, clone NPC spell sets into the 50000–65535 band, then run one pipeline that writes clones at 800000+ instead of editing vanilla PEQ. Lint, draft, pawn, give, probe, undo.</p>
+        </article>
+        <article class="card">
+          <h3>Tier Factory</h3>
+          <p>Named recipes with trash / boss / raid numbers plus a gear kit. Stamp copies that kit onto many zones. Ladder steps each zone by the multiplier and mints a new item ID range so T2 is not wearing T1 loot.</p>
+        </article>
+        <article class="card">
           <h3>Zone Controller</h3>
           <p>Browse configured Ultimate zone JSON (custom / ignore / depop / loot / items). Bulk create or clone zones, stamp trash/boss/raid tiers, and add custom mobs. Writes JSON only; live memory still reloads from the Perl controller.</p>
         </article>
@@ -82,14 +92,177 @@
           <p>Edit the talent catalog, rank buckets, unlock flags, class specializations, trait vendor list, and runeword combo recipes. Preview then write JSON with backups.</p>
         </article>
         <article class="card">
+          <h3>Keys / Flags + LDoN</h3>
+          <p>Owned and known keys plus quest, bucket, zone, and account flags on one character page. LDoN search is theme-first (Guk, Miragul, Mistmoore, Rujarkian, Takish) with zone and adventure rows, plus character points and wins.</p>
+        </article>
+        <article class="card">
           <h3>Tasks, zones, chrome</h3>
           <p>Tasks use a searchable table instead of a giant native select. Zone expansions match PEQ (Classic is 1, Kunark is 2). Left-nav pages use the same windows, toolbars, and tables.</p>
         </article>
       </div>
     </section>
 
+    <section class="section wrap" id="latest">
+      <h2>Latest add-ons</h2>
+      <p class="intro">Content Factory, Tier Factory, LDoN, and the rest of the new left-nav tools. Privacy mode is on. Disk paths are hidden. Open any of these in the <a href="app/">read-only app</a>.</p>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Zone census + cherry-pick</h3>
+          <p>Load a zone’s real spawn data: role, HP, pops, faction, loot table, NPC spell set, casts, and merchant. Checkboxes exclude NPCs from writes. Neighbors, ground spawns, and forage counts sit on the same page. Default target is trash; merchants are skipped.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-census.png" alt="Content Factory Blackburrow census with trash and named roles" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Reserved ID board</h3>
+          <p>Next free ID is max(floor, max+1) for items, spells, NPC types, loot, and merchant lists. Custom gear starts at 800000. NPC-castable spell clones stay in the 50000–65535 band so they fit the <code>npc_spells_entries.spellid</code> column.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-ids.png" alt="Content Factory reserved ID board" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Item kit studio</h3>
+          <p>An 18×16 class/slot grid. Each cell is a source item ID. Import fills from a live zone’s loot. Preview clones and scales; write mints new item rows in the reserved range and saves the recipe for Tier Factory.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-kit.png" alt="Content Factory item kit grid filled from Blackburrow loot" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Dual loot composer</h3>
+          <p>Trash and named tables attach separately. Leave named empty if you only want trash drops. Use last kit items, set cash and probability, then preview the attach list before writing lootdrop rows.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-loot.png" alt="Content Factory trash and named loot composer" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>One pipeline run</h3>
+          <p>Spells → kit → NPC clones → trash/named loot → dual spell sets → merchant attach → client export → reload → probe. Clone NPCs at 800000+ instead of editing vanilla rows. Lint and a post-write probe run before anything is treated as done.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-pipeline.png" alt="Content Factory one-pipeline-run form" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>NPC spell-set factory</h3>
+          <p>Clone an <code>npc_spells</code> list and its entries. Spell IDs stay at or below 65535 so they fit the entry column. Attach the new set to cherry-picked NPCs or a zone list. Search existing lists (Default Magician, Default Shaman List) as the source.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-npc-spells.png" alt="Content Factory NPC spell-set factory" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Spell-set editor</h3>
+          <p>Load an <code>npc_spells</code> list, edit min/max level, type, mana, recast, and priority, then save as a new 800000+ list or replace the source. Search spells by name to add entries.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-spellset.png" alt="Content Factory spell-set editor loaded with Default Shaman List" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Content Factory</p>
+          <h3>Test pawn + give</h3>
+          <p>Spawn a <code>SPIRE_TEST_</code> NPC at the zone safe point, or put minted items on a character inventory. Preview writes first. Probe last plan / zone checks that the client export and zone JSON actually contain the new IDs.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-cf-test.png" alt="Content Factory test pawn and give tab" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Tier Factory</p>
+          <h3>Named recipes + stamp / ladder</h3>
+          <p>A recipe is the tier: trash / boss / raid numbers plus a gear kit. Stamp copies that kit onto many zones. Ladder steps each zone up by the multiplier and mints a new item ID range so T2 is not wearing T1 loot. Mint the kit itself in Content Factory.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-tier-factory.png" alt="Tier Factory named recipe editor" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Editors</p>
+          <h3>PEQ Editors hub</h3>
+          <p>Every PHP editor tab from peqphpeditor, mapped onto local Ultimate Spire. Dedicated pages stay where they are. Missing ones open a table editor against the same peq tables. Content Factory, Tier Factory, Keys / Flags, and LDoN are in the catalog.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-editors.png" alt="PEQ Editors hub with Content Factory and Tier Factory cards" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Characters</p>
+          <h3>LDoN theme search</h3>
+          <p>LDoN-only zones and adventures, filtered by theme. Guk shows Deepest Guk, the Cauldron of Lost Souls, and the rest with zone IDs and adventure counts. Character tab holds available points and wins. Raw templates stay on the Adventures table editor.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-ldon.png" alt="LDoN theme search showing Guk dungeon zones" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Items</p>
+          <h3>Item search with EQ icons</h3>
+          <p>Name, type, level, class, race, slot, deity, and flags. Class / race / deity chips carry their EQ icons. Result rows keep the item icon and wearable class icons instead of a long WAR, CLR list.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-items.png" alt="Item search with class race deity chips and icon results" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Spells</p>
+          <h3>Spell browser</h3>
+          <p>Search by name, SPA, level, and class icon. Same window chrome as items. NPC spell sets themselves live under Content Factory and NPCs → Spells, not this list.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-spells.png" alt="Spell browser with class icons and Complete Heal search" />
+        </div>
+      </article>
+
+      <article class="tab">
+        <div class="copy">
+          <p class="group">Zones</p>
+          <h3>Zone list + controller JSON</h3>
+          <p>484 zones with 1-based expansion labels (Classic, Kunark, Velious). A Zone Controller badge jumps to the 27 configured Ultimate folders. JSON links open the controller files for that zone.</p>
+        </div>
+        <div class="shot">
+          <img src="shots/demo-zones.png" alt="Zones list with Classic expansion labels and Zone Controller links" />
+        </div>
+      </article>
+    </section>
+
     <section class="section wrap" id="addons">
-      <h2>New add-ons (stills)</h2>
+      <h2>Earlier add-ons (stills)</h2>
       <p class="intro">These shipped after the original video set. Privacy mode is on. Disk paths are hidden.</p>
 
       <article class="tab">
