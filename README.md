@@ -6,7 +6,7 @@ Public demo site for the editors, inventory tool, item icons, 2D/3D zone tools, 
 
 **Interactive app:** https://eniner.github.io/ultimate-spire-demo/app/
 
-The clickable demo is the same Vue Spire frontend as the local tool, with a read-only adapter over a snapshot of the **default EQEmu installer PEQ**. No accounts, passwords, or live server files are included. Zone Controller and talent/runeword pages are the real screens; those catalogs are empty here because they live in quest JSON, not stock PEQ.
+The clickable demo is the same Vue Spire frontend as the local tool, with a read-only adapter over a snapshot of the **default EQEmu installer PEQ** plus seeded Ultimate catalogs (27 zone-controller zones, talents, ranks, unlocks, traits, and runewords). Character / guild names on the inventory page are fake demo rows. No accounts, passwords, or live server files are included.
 
 **Windows exe:** https://github.com/eniner/ultimate-spire/releases/latest
 
