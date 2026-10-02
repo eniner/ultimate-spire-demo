@@ -4,6 +4,10 @@ Public demo site for the editors, inventory tool, item icons, 2D/3D zone tools, 
 
 **Site:** https://eniner.github.io/ultimate-spire-demo/
 
+**Interactive mock:** https://eniner.github.io/ultimate-spire-demo/mock/
+
+The mock is a clickable Spire shell. Zone / item / task / evolving / Blackburrow spawn data comes from a snapshot of the **default EQEmu installer PEQ** database. No accounts, passwords, or live server files are included. Zone Controller and talent/runeword tabs are chrome-only because those live in quest JSON, not stock PEQ.
+
 **Windows exe:** https://github.com/eniner/ultimate-spire/releases/latest
 
 ## New add-ons (screenshots)

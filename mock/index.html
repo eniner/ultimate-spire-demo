@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" class="spire-modern" data-theme="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ultimate Spire — interactive mock</title>
+  <meta name="description" content="Clickable mock of Ultimate Spire: left-nav pages, evolving tables, zone controller, talents, inventory, Atlas, and privacy mode. Canned demo data only." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#/home">
+        <span class="brand-mark">US</span>
+        <span>Ultimate Spire</span>
+      </a>
+      <p class="mock-flag">Interactive mock · stock installer PEQ</p>
+
+      <p class="nav-h">Game Data</p>
+      <a class="nav-link" href="#/editors">PEQ Editors</a>
+      <a class="nav-link" href="#/items">Items</a>
+      <a class="nav-link" href="#/evolving">Evolving Items</a>
+      <a class="nav-link" href="#/inventory">Inventory</a>
+      <a class="nav-link" href="#/tasks">Tasks</a>
+      <a class="nav-link" href="#/zones">Zones</a>
+      <a class="nav-link" href="#/controller">Zone Controller</a>
+      <a class="nav-link" href="#/systems">Talents / Runewords</a>
+
+      <p class="nav-h">Client</p>
+      <a class="nav-link" href="#/files">Server Files</a>
+      <a class="nav-link" href="#/admin">Server Admin</a>
+
+      <p class="nav-h">Tools</p>
+      <a class="nav-link" href="#/calculators">Calculators</a>
+      <a class="nav-link" href="#/sage">Sage</a>
+      <a class="nav-link" href="#/atlas">3D Atlas</a>
+
+      <div class="side-foot">
+        <button type="button" class="ghost" id="privacy-btn">Hide private details</button>
+        <a class="ghost" href="../">Back to walkthrough</a>
+      </div>
+    </aside>
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <div class="crumb" id="crumb">Mock</div>
+          <h1 id="page-title">Home</h1>
+        </div>
+        <div class="top-actions">
+          <span class="pill" id="privacy-pill">Privacy off</span>
+          <span class="pill dim">Demo EQ · no database</span>
+        </div>
+      </header>
+      <div class="page" id="page"></div>
+    </div>
+  </div>
+  <div class="toast" id="toast" hidden></div>
+  <script src="app.js"></script>
+</body>
+</html>
