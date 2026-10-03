@@ -89,6 +89,8 @@ img, video { max-width: 100%; display: block; }
 }
 .steps { color: var(--muted); line-height: 1.7; padding-left: 20px; }
 .steps code, .card code, .tab code, .intro code { color: var(--text); }
+.card a { color: var(--accent); }
+.card .tree { margin-top: 10px; font-size: 12px; }
 
 .tree-title { font-family: var(--serif); font-size: 20px; margin: 28px 0 10px; }
 .tree {

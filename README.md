@@ -10,7 +10,7 @@ The clickable demo is the same Vue Spire frontend as the local tool, with a read
 
 **Windows exe:** https://github.com/eniner/ultimate-spire/releases/latest
 
-**Zone Controller pack:** https://eniner.github.io/ultimate-spire-demo/zone-controller-starter.zip — real `zone_controller.pl` plus blank new-zone JSON paths. Directions: https://eniner.github.io/ultimate-spire-demo/#zone-controller
+**Zone Controller pack:** https://eniner.github.io/ultimate-spire-demo/zone-controller-starter.zip — real `zone_controller.pl` plus blank new-zone JSON paths. Directions: https://eniner.github.io/ultimate-spire-demo/#zone-controller. Perl runtime / modules: https://eniner.github.io/ultimate-spire-demo/zone-controller/REQUIREMENTS.md
 
 ## Latest add-ons (screenshots)
 

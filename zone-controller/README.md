@@ -38,6 +38,55 @@ Unzip next to `eqemu_config.json` / `zone.exe` so the tree looks like this:
 
 Spire must see the same `quests` folder. Put `spire-windows-amd64.exe` in that server folder, or set `SPIRE_QUESTS_ROOT`.
 
+## Requirements
+
+The zone process runs Perl. Files alone are not enough.
+
+### Runtime
+
+- A working EQEmu `zone.exe` / `world.exe` that already loads Perl quests
+- **Perl on PATH** for that zone process (Windows servers usually use [Strawberry Perl](https://strawberryperl.com/))
+- Zone working directory = the folder that contains `eqemu_config.json` (so `MySQL.pl` can open it)
+
+### Perl modules
+
+`instance_tools.pl` uses the CPAN `JSON` package (not only core `JSON::PP`). Name lookups and respawn writes need `DBI` + `DBD::mysql`.
+
+| Module | Used for | Notes |
+|---|---|---|
+| `JSON` | Read / write mob, loot, item JSON | Install if `perl -MJSON -e 1` fails |
+| `JSON::PP` | Spire Apply command files | Core Perl; should already be there |
+| `DBI` | `GetAllNPCNamesForZone`, item name lookup | EQEmu Perl usually has this |
+| `DBD::mysql` | Same DB calls | Must match your MySQL / MariaDB |
+| `File::Copy` / `File::Path` | Copy blank templates on first init | Core Perl |
+
+Check from the **server folder**:
+
+```
+perl -MJSON -MJSON::PP -MDBI -MDBD::mysql -e "print qq{ok\n}"
+```
+
+If that dies, with Strawberry Perl:
+
+```
+cpan JSON
+cpan DBI
+cpan DBD::mysql
+```
+
+### Database and NPC
+
+- `eqemu_config.json` → `server.database` reachable from the zone host
+- NPC type **2000986** named exactly `zone_controller` (run `npc_types_zone_controller.sql` if missing)
+- EQEmu auto-spawns that name; no `spawn2` row is required in most zones
+- If your controller NPC uses a different id, change `GetControllerNPCID()` in `instance_tools.pl`
+
+### Paths
+
+- `quests/` next to `zone.exe`, or set `EQEMU_QUEST_ROOT` / `quest_root` in `eqemu_config.json`
+- Spire in that same folder, or `SPIRE_QUESTS_ROOT` pointing at that `quests` directory
+- World telnet is optional: Apply still drops `_spire_commands/<zoneid>.json` for a **popped** controller
+
 ## Already running Ultimate?
 
 Do **not** overwrite your existing `ultimatedata/17`, `ultimatedata/31`, … folders.
@@ -52,7 +101,7 @@ You only need:
 
 1. Copy the `quests/` folder from this pack onto your server.
 2. Run `npc_types_zone_controller.sql` against your peq database.
-3. Perl modules: `JSON`, `JSON::PP`, `DBI`, `DBD::mysql` (zone process cwd = server root).
+3. Confirm the Perl modules in Requirements (`perl -MJSON -MDBI -MDBD::mysql -e "print qq{ok\n}"`).
 4. Pop a zone. EQEmu auto-spawns an NPC named `zone_controller`.
 5. First hail / `!zc refreshzonedata` copies the blank templates into `ultimatedata/<zoneid>/`.
 6. Edit those files in Spire, then Apply (`refreshzonedata` + `rebuffzone`) or hail again.

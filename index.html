@@ -538,6 +538,30 @@
         <a class="cta" href="zone-controller-starter.zip">Download zone-controller-starter.zip</a>
         <a class="cta ghost" href="zone-controller/">Browse the files</a>
         <a class="cta ghost" href="zone-controller/PATHS.md">Shared path list</a>
+        <a class="cta ghost" href="zone-controller/REQUIREMENTS.md">Requirements</a>
+      </p>
+
+      <h3 class="tree-title" id="zc-requirements">Requirements</h3>
+      <p class="intro">The zone process runs Perl. Dropping the files in is not enough if that runtime is missing.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Perl runtime</h3>
+          <p>EQEmu <code>zone.exe</code> must already load Perl quests. On Windows that is usually <a href="https://strawberryperl.com/">Strawberry Perl</a> on PATH. The zone working directory must be the folder that contains <code>eqemu_config.json</code> so <code>MySQL.pl</code> can open it.</p>
+        </article>
+        <article class="card">
+          <h3>Perl modules</h3>
+          <p><code>instance_tools.pl</code> needs the CPAN <code>JSON</code> package (not only core <code>JSON::PP</code>). Name lookups need <code>DBI</code> and <code>DBD::mysql</code>. <code>JSON::PP</code>, <code>File::Copy</code>, and <code>File::Path</code> are core.</p>
+          <pre class="tree">perl -MJSON -MJSON::PP -MDBI -MDBD::mysql -e "print qq{ok\n}"</pre>
+        </article>
+        <article class="card">
+          <h3>Database + NPC</h3>
+          <p><code>eqemu_config.json</code> → <code>server.database</code> must work. Insert NPC <code>2000986</code> named <code>zone_controller</code> (SQL is in the pack). EQEmu auto-spawns that name; most zones do not need a <code>spawn2</code> row.</p>
+        </article>
+      </div>
+      <p class="note">
+        If the Perl check fails on Strawberry: <code>cpan JSON</code> then <code>cpan DBI</code> then <code>cpan DBD::mysql</code>.
+        <code>quests/</code> must sit next to <code>zone.exe</code>, or set <code>EQEMU_QUEST_ROOT</code>.
+        Full list: <a href="zone-controller/REQUIREMENTS.md">REQUIREMENTS.md</a>.
       </p>
 
       <div class="grid-3">
@@ -589,6 +613,7 @@
 
       <ol class="steps">
         <li>Unzip so <code>quests/global/zone_controller.pl</code> sits next to your other global quests.</li>
+        <li>From the server folder run <code>perl -MJSON -MJSON::PP -MDBI -MDBD::mysql -e "print qq{ok\n}"</code>. If that fails, install Strawberry Perl and <code>cpan JSON DBI DBD::mysql</code>.</li>
         <li>Run <code>npc_types_zone_controller.sql</code> if you do not already have NPC <code>2000986</code> named <code>zone_controller</code>.</li>
         <li>Point Spire at that same server folder (or set <code>SPIRE_QUESTS_ROOT</code>).</li>
         <li>Pop the zone. Apply from Spire writes <code>_spire_commands/&lt;zoneid&gt;.json</code>; the controller picks it up within about 2 seconds.</li>
