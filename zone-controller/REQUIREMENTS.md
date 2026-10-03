@@ -39,3 +39,11 @@ cpan DBD::mysql
 
 - `quests/` beside `zone.exe`, or `EQEMU_QUEST_ROOT` / `quest_root`
 - Spire beside the server, or `SPIRE_QUESTS_ROOT`
+
+## Sage, Lantern, and 2D maps (not in this pack)
+
+These are separate from Zone Controller. Do not zip EQ client files or Lantern exports.
+
+- **2D maps** — Spire downloads `eq-asset-preview` on first launch (internet once).
+- **Sage** — Spire proxies EQ Sage from the web. The user Connects their own EQ client folder in Chrome. Sage writes `eqsage/` next to that client.
+- **Lantern / Atlas 3D** — needs a LanternExtractor `Exports` folder with `<zone>/Zone/<zone>.glb`. Set `SPIRE_LANTERN_ROOT`, or keep Exports in the default Downloads / Desktop / Documents LanternExtractor path. Each person extracts their own client.

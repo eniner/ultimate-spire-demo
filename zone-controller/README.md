@@ -124,3 +124,7 @@ NPC type id **2000986** must be named `zone_controller`. Change `GetControllerNP
 ## Optional
 
 `snippets/global_player.zc-snippet.pl` — merge into `global_player.pl` for cross-zone `!initdata <zoneid>`.
+
+## Sage / Lantern are not in this pack
+
+2D maps download with Spire. Sage needs the user’s EQ client folder. Atlas 3D needs their LanternExtractor `Exports` (`SPIRE_LANTERN_ROOT`). See `REQUIREMENTS.md`.

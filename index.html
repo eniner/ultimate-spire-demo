@@ -564,6 +564,23 @@
         Full list: <a href="zone-controller/REQUIREMENTS.md">REQUIREMENTS.md</a>.
       </p>
 
+      <h3 class="tree-title" id="zc-sage-lantern">Sage, Lantern, and 2D maps</h3>
+      <p class="intro">Do <strong>not</strong> put these in the Zone Controller zip. They are client-side tools and use the recipient’s own EverQuest files.</p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>2D zone map</h3>
+          <p>Comes with Spire. On first launch the exe downloads <code>eq-asset-preview</code> (map lines, icons, NPC sprites). Internet once. No extra pack.</p>
+        </article>
+        <article class="card">
+          <h3>Sage</h3>
+          <p>The Sage page loads EQ Sage from the web (<code>eqsage.vercel.app</code> through Spire). The user clicks <strong>Connect EQ folder</strong> on their own client directory. Sage writes an <code>eqsage/</code> cache next to those files. Chrome + their EQ install. You cannot ship someone else’s client.</p>
+        </article>
+        <article class="card">
+          <h3>Lantern / Atlas 3D</h3>
+          <p>Atlas reads <code>.glb</code> meshes from a <strong>LanternExtractor Exports</strong> folder (<code>&lt;zone&gt;/Zone/&lt;zone&gt;.glb</code>). Point Spire at it with <code>SPIRE_LANTERN_ROOT</code>, or leave Exports in Downloads / Desktop / Documents under the default LanternExtractor path. Each person extracts their own client. Those meshes are large and not part of this pack.</p>
+        </article>
+      </div>
+
       <div class="grid-3">
         <article class="card">
           <h3>What you get</h3>
