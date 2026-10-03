@@ -16,6 +16,7 @@
         <a href="#features">Features</a>
         <a href="#latest">Latest</a>
         <a href="#addons">Add-ons</a>
+        <a href="#zone-guide">How to operate</a>
         <a href="#zone-controller">Zone Controller files</a>
         <a href="#videos">Videos</a>
         <a href="#download">Download</a>
@@ -38,6 +39,7 @@
       </p>
       <p class="cta-row">
         <a class="cta" href="app/">Open the real app (read-only demo)</a>
+        <a class="cta ghost" href="app/#/zones/controller/guide">Zone systems guide</a>
         <a class="cta ghost" href="zone-controller-starter.zip">Download Zone Controller pack</a>
         <a class="cta ghost" href="#zone-controller">Where the files go</a>
       </p>
@@ -84,6 +86,10 @@
         <article class="card">
           <h3>Tier Factory</h3>
           <p>Named recipes with trash / boss / raid numbers plus a gear kit. Stamp copies that kit onto many zones. Ladder steps each zone by the multiplier and mints a new item ID range so T2 is not wearing T1 loot.</p>
+        </article>
+        <article class="card">
+          <h3>Zone systems guide</h3>
+          <p>In-app walkthrough for new zone kits, minting items, cloning NPCs, the pipeline, and Apply live. Open it from Zone Controller, Builder, Content Factory, or <a href="app/#/zones/controller/guide">the Guide tab</a>.</p>
         </article>
         <article class="card">
           <h3>Zone Controller</h3>
@@ -527,6 +533,35 @@
       <p class="note">Product overview only. This site does not host the emulator, database, or server files. Recorded from a local Ultimate Spire instance with privacy mode on.</p>
     </section>
 
+    <section class="section wrap" id="zone-guide">
+      <h2>How to operate the zone tools</h2>
+      <p class="intro">
+        The in-app Guide tab walks through new zone kits, minting items, cloning NPCs,
+        the Content Factory pipeline, and Apply live. Files on disk are not live memory
+        until the controller reloads.
+      </p>
+      <p class="cta-row">
+        <a class="cta" href="app/#/zones/controller/guide">Open the zone systems guide</a>
+        <a class="cta ghost" href="app/#/zones/controller/guide?section=items">Create items</a>
+        <a class="cta ghost" href="app/#/zones/controller/guide?section=npcs">Create NPCs</a>
+        <a class="cta ghost" href="app/#/zones/controller/guide?section=zone">Create a zone kit</a>
+      </p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>New zone kit</h3>
+          <p>Builder → Create / clone writes blank <code>ultimatedata/&lt;id&gt;</code> JSON for an existing PEQ zone. Hail fallback copies templates. Then set trash / boss / raid and name your custom mobs.</p>
+        </article>
+        <article class="card">
+          <h3>Items</h3>
+          <p>Content Factory clones gear at 800000+. Fill the class/slot kit, Preview, Write items, then attach trash (and optional named) loot. Tier Factory stamps that recipe onto more zones.</p>
+        </article>
+        <article class="card">
+          <h3>NPCs</h3>
+          <p>Scale existing spawns with Zone Controller basedata. Mint new types with Content Factory clones at 800000+ and retarget spawnentry. Do not bulk-edit vanilla PEQ NPC ids.</p>
+        </article>
+      </div>
+    </section>
+
     <section class="section wrap" id="zone-controller">
       <h2>Zone Controller files — where they go</h2>
       <p class="intro">
@@ -536,6 +571,7 @@
       </p>
       <p class="cta-row">
         <a class="cta" href="zone-controller-starter.zip">Download zone-controller-starter.zip</a>
+        <a class="cta ghost" href="app/#/zones/controller/guide">How to operate</a>
         <a class="cta ghost" href="zone-controller/">Browse the files</a>
         <a class="cta ghost" href="zone-controller/PATHS.md">Shared path list</a>
         <a class="cta ghost" href="zone-controller/REQUIREMENTS.md">Requirements</a>
