@@ -1,0 +1,107 @@
+{
+  "TEMPZONEID": {
+    "info": {
+      "name": "",
+      "objective": "",
+      "tip": "",
+      "respawn": ""
+    },
+    "depop": {
+      "all": []
+    },
+    "ignore": {
+      "all": [
+        {
+          "name": "zone controller"
+        }
+      ]
+    },
+    "basedata": {
+      "trash": {
+        "level": "-1",
+        "max_hp": "-1",
+        "min_hit": "-1",
+        "max_hit": "-1",
+        "aggro": "-1",
+        "assist": "-1",
+        "atk": "-1",
+        "accuracy": "-1",
+        "dex": "-1",
+        "str": "-1",
+        "ac": "-1",
+        "mr": "-1",
+        "fr": "-1",
+        "dr": "-1",
+        "pr": "-1",
+        "cr": "-1",
+        "attack_speed": "-1",
+        "see_invis": "-1",
+        "see_hide": "-1",
+        "see_improved_hide": "-1",
+        "size": "-1",
+        "slow_mitigation": "-1",
+        "special_attacks": "-1",
+        "special_abilities": "-1",
+        "cash": "-1",
+        "loot": []
+      },
+      "boss": {
+        "level": "-1",
+        "max_hp": "-1",
+        "min_hit": "-1",
+        "max_hit": "-1",
+        "aggro": "-1",
+        "assist": "-1",
+        "atk": "-1",
+        "accuracy": "-1",
+        "dex": "-1",
+        "str": "-1",
+        "ac": "-1",
+        "mr": "-1",
+        "fr": "-1",
+        "dr": "-1",
+        "pr": "-1",
+        "cr": "-1",
+        "attack_speed": "-1",
+        "see_invis": "-1",
+        "see_hide": "-1",
+        "see_improved_hide": "-1",
+        "size": "-1",
+        "slow_mitigation": "-1",
+        "special_attacks": "-1",
+        "special_abilities": "-1",
+        "cash": "-1",
+        "loot": []
+      },
+      "raid": {
+        "level": "-1",
+        "max_hp": "-1",
+        "min_hit": "-1",
+        "max_hit": "-1",
+        "aggro": "-1",
+        "assist": "-1",
+        "atk": "-1",
+        "accuracy": "-1",
+        "dex": "-1",
+        "str": "-1",
+        "ac": "-1",
+        "mr": "-1",
+        "fr": "-1",
+        "dr": "-1",
+        "pr": "-1",
+        "cr": "-1",
+        "attack_speed": "-1",
+        "see_invis": "-1",
+        "see_hide": "-1",
+        "see_improved_hide": "-1",
+        "size": "-1",
+        "slow_mitigation": "-1",
+        "special_attacks": "-1",
+        "special_abilities": "-1",
+        "cash": "-1",
+        "loot": []
+      }
+    },
+    "custom": {}
+  }
+}

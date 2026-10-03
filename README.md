@@ -10,6 +10,8 @@ The clickable demo is the same Vue Spire frontend as the local tool, with a read
 
 **Windows exe:** https://github.com/eniner/ultimate-spire/releases/latest
 
+**Zone Controller pack:** https://eniner.github.io/ultimate-spire-demo/zone-controller-starter.zip — real `zone_controller.pl` plus blank new-zone JSON paths. Directions: https://eniner.github.io/ultimate-spire-demo/#zone-controller
+
 ## Latest add-ons (screenshots)
 
 1. **Content Factory census** — live zone spawn data with trash / named / raid / ignore, HP, pops, faction, neighbors

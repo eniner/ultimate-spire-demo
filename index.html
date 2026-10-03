@@ -16,6 +16,7 @@
         <a href="#features">Features</a>
         <a href="#latest">Latest</a>
         <a href="#addons">Add-ons</a>
+        <a href="#zone-controller">Zone Controller files</a>
         <a href="#videos">Videos</a>
         <a href="#download">Download</a>
         <a href="https://github.com/eniner/ultimate-spire-demo">GitHub</a>
@@ -37,7 +38,8 @@
       </p>
       <p class="cta-row">
         <a class="cta" href="app/">Open the real app (read-only demo)</a>
-        <a class="cta ghost" href="#videos">Watch the clips</a>
+        <a class="cta ghost" href="zone-controller-starter.zip">Download Zone Controller pack</a>
+        <a class="cta ghost" href="#zone-controller">Where the files go</a>
       </p>
       <div class="hero-stats">
         <div class="stat"><b>8</b><span>feature clips</span></div>
@@ -85,7 +87,7 @@
         </article>
         <article class="card">
           <h3>Zone Controller</h3>
-          <p>Browse configured Ultimate zone JSON (custom / ignore / depop / loot / items). Bulk create or clone zones, stamp trash/boss/raid tiers, and add custom mobs. Writes JSON only; live memory still reloads from the Perl controller.</p>
+          <p>The real Perl script plus blank new-zone JSON paths. Spire edits those files and queues Apply commands. <a href="#zone-controller">Where to put the files</a>.</p>
         </article>
         <article class="card">
           <h3>Talents / Runewords</h3>
@@ -525,12 +527,87 @@
       <p class="note">Product overview only. This site does not host the emulator, database, or server files. Recorded from a local Ultimate Spire instance with privacy mode on.</p>
     </section>
 
+    <section class="section wrap" id="zone-controller">
+      <h2>Zone Controller files — where they go</h2>
+      <p class="intro">
+        Spire is only the editor. The zone process runs <code>quests/global/zone_controller.pl</code>.
+        This pack is that real script (including the 2-second Spire Apply poll) plus
+        <strong>blank</strong> mob / loot / item templates. No live item or NPC kits.
+      </p>
+      <p class="cta-row">
+        <a class="cta" href="zone-controller-starter.zip">Download zone-controller-starter.zip</a>
+        <a class="cta ghost" href="zone-controller/">Browse the files</a>
+        <a class="cta ghost" href="zone-controller/PATHS.md">Shared path list</a>
+      </p>
+
+      <div class="grid-3">
+        <article class="card">
+          <h3>What you get</h3>
+          <ul>
+            <li>The live <code>zone_controller.pl</code> (not a stub)</li>
+            <li>Blank <code>_mob.json</code> / <code>_loot.json</code> / <code>_item.json</code> templates</li>
+            <li>Empty <code>_spire_*</code> folders Spire writes into</li>
+            <li><code>instance_tools.pl</code> + a small support plugin</li>
+            <li>SQL for NPC id <code>2000986</code> named <code>zone_controller</code></li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Already on Ultimate?</h3>
+          <p>Replace only <code>quests/global/zone_controller.pl</code>. Do not overwrite your existing <code>ultimatedata/17</code> (etc.) folders. Skip the support plugin if Whisper / Debug / TSS already exist.</p>
+        </article>
+        <article class="card">
+          <h3>New server</h3>
+          <p>Copy the <code>quests/</code> tree next to <code>eqemu_config.json</code>. Run the SQL. Pop a zone. Hail the auto-spawned controller or click Apply in Spire. First init copies the blank templates into <code>ultimatedata/&lt;zoneid&gt;/</code>.</p>
+        </article>
+      </div>
+
+      <h3 class="tree-title">Put them here</h3>
+      <pre class="tree">your-eqemu-server/
+  eqemu_config.json
+  zone.exe
+  spire-windows-amd64.exe
+  quests/
+    global/
+      zone_controller.pl
+      ultimatedata/
+        templates/_mob.json
+        templates/_loot.json
+        templates/_item.json
+        &lt;zoneid&gt;/&lt;zoneid&gt;_mob.json
+        &lt;zoneid&gt;/&lt;zoneid&gt;_loot.json
+        &lt;zoneid&gt;/&lt;zoneid&gt;_item.json
+        _spire_commands/&lt;zoneid&gt;.json
+        _spire_drafts/
+        _spire_recipes/
+        _spire_runs/
+        _spire_export/
+        _spire_backups/
+    plugins/
+      instance_tools.pl
+      MySQL.pl
+      zc_support.pl</pre>
+
+      <ol class="steps">
+        <li>Unzip so <code>quests/global/zone_controller.pl</code> sits next to your other global quests.</li>
+        <li>Run <code>npc_types_zone_controller.sql</code> if you do not already have NPC <code>2000986</code> named <code>zone_controller</code>.</li>
+        <li>Point Spire at that same server folder (or set <code>SPIRE_QUESTS_ROOT</code>).</li>
+        <li>Pop the zone. Apply from Spire writes <code>_spire_commands/&lt;zoneid&gt;.json</code>; the controller picks it up within about 2 seconds.</li>
+        <li>Optional: merge <code>snippets/global_player.zc-snippet.pl</code> for cross-zone <code>!initdata &lt;zoneid&gt;</code>.</li>
+      </ol>
+      <p class="note">
+        Blank templates use <code>-1</code> for every basedata stat (leave vanilla NPCs alone) and empty loot / item / custom lists.
+        Fill those in Spire. Do not ship someone else’s item or NPC data unless you mean to.
+        Full notes: <a href="zone-controller/">zone-controller/README.md</a>.
+      </p>
+    </section>
+
     <section class="section wrap" id="download">
       <h2>Download the Windows exe</h2>
       <p class="intro">Same drop-in as stock Spire. Put the exe next to <code>eqemu_config.json</code> and run it. Use the Ultimate Spire release, not EQEmu/spire, or auto-update will replace this build with stock.</p>
       <p class="cta-row">
         <a class="cta" href="https://github.com/eniner/ultimate-spire/releases/latest">Latest release</a>
         <a class="cta ghost" href="https://github.com/eniner/ultimate-spire/releases">All releases</a>
+        <a class="cta ghost" href="zone-controller-starter.zip">Zone Controller files</a>
       </p>
       <ol class="steps">
         <li>Download <code>spire-windows-amd64.exe.zip</code></li>
