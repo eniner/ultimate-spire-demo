@@ -4,6 +4,8 @@ This is the in-game Perl controller Ultimate Spire writes JSON for.
 The `zone_controller.pl` here is the real script (including the 2-second Spire command poll).
 Mob, loot, and item JSON are **blank templates** — no live server kits.
 
+It exists so you can scale a zone (HP, hits, ignore / depop, extra loot) in live memory without rewriting vanilla `npc_types` / `lootdrop`. EQEmu auto-spawns NPC `2000986` named `zone_controller`. That NPC loads `ultimatedata/<zoneid>` JSON, buffs each spawn, and every 2 seconds polls `_spire_commands/<zoneid>.json` so Spire Apply can refresh and rebuff a popped zone. Files on disk are not live until that reload. Full “why” on the [demo site](https://eniner.github.io/ultimate-spire-demo/#zc-why).
+
 ## Where these files go
 
 Unzip next to `eqemu_config.json` / `zone.exe` so the tree looks like this:

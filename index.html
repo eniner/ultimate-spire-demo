@@ -576,10 +576,56 @@
       </p>
       <p class="cta-row">
         <a class="cta" href="zone-controller-starter.zip">Download zone-controller-starter.zip</a>
+        <a class="cta ghost" href="#zc-why">Why this script exists</a>
         <a class="cta ghost" href="app/#/zones/controller/guide">How to operate</a>
         <a class="cta ghost" href="zone-controller/">Browse the files</a>
         <a class="cta ghost" href="zone-controller/PATHS.md">Shared path list</a>
         <a class="cta ghost" href="zone-controller/REQUIREMENTS.md">Requirements</a>
+      </p>
+
+      <h3 class="tree-title" id="zc-why">Why the controller exists</h3>
+      <p class="intro">
+        Stock EQEmu stores every NPC in PEQ (<code>npc_types</code>, <code>spawn2</code>, loot tables).
+        Changing Blackburrow trash HP or a named drop usually means editing those rows.
+        That mutates vanilla data, is hard to revert, and already-popped NPCs keep old memory until a full repop.
+        The controller is a global quest NPC (id <code>2000986</code>, name <code>zone_controller</code>) that EQEmu auto-spawns.
+        It leaves those spawn rows alone and overlays live entities from JSON.
+      </p>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Overlay, do not rewrite vanilla</h3>
+          <p>On spawn it loads <code>ultimatedata/&lt;zoneid&gt;/{mob,loot,item}.json</code>. Missing files are copied from the blank templates. <code>-1</code> in basedata means leave the vanilla stat. You can scale a zone, then delete the kit and the stock PEQ rows are still there.</p>
+        </article>
+        <article class="card">
+          <h3>Classify every spawn</h3>
+          <p>Each NPC is trash, a named custom (boss / raid), ignore, or depop. Ignore skips pets, merchants, and the controller itself so they are not scaled. Depop removes placeholders you do not want in the zone. Custom names override the trash defaults.</p>
+        </article>
+        <article class="card">
+          <h3>Buff and loot in live memory</h3>
+          <p><code>SET_MOB_BUFFS</code> writes level, HP, size, cash, and other <code>ModifyNPCStat</code> keys onto the spawned NPC, then heals it. <code>SET_MOB_LOOT</code> clears the corpse list and rolls JSON tables onto it. That is how you test a drop table without rewriting <code>lootdrop</code> first.</p>
+        </article>
+        <article class="card">
+          <h3>Catch respawns</h3>
+          <p>New pops signal the controller so a fresh spawn is buffed immediately. Reconcile timers at 1s, 5s, and 30s after boot, then every 1s with players in zone (30s when empty), walk the NPC list and apply anything still pending. A missed signal does not leave a vanilla-stat mob sitting next to scaled trash.</p>
+        </article>
+        <article class="card">
+          <h3>Inspect in-game</h3>
+          <p>A GM hail (or <code>!zc</code> / <code>#zc</code>) opens the same menu: mob lists, ignore / depop, loot tables, per-type stats, and a diagnostics dump (signals, reconcile counts, apply ok / fail). That is for standing in the zone and asking “what did the script just do to this NPC?”</p>
+        </article>
+        <article class="card">
+          <h3>Apply from Spire without hailing</h3>
+          <p>Every 2 seconds <code>PROCESS_SPIRE_COMMANDS</code> picks up <code>_spire_commands/&lt;zoneid&gt;.json</code> and runs the same tokens as hail: <code>refreshzonedata</code>, <code>rebuffzone</code>, <code>applyallchanges</code>, repop / depop. It writes a <code>.result.json</code> and a GM say. Files on disk are not live until that reload.</p>
+        </article>
+      </div>
+      <p class="intro">
+        For emu development that split is the point. Content Factory mints new PEQ rows at 800000+ (items, clones, spell sets).
+        The controller is the runtime that uses those IDs on a popped zone without a SQL dump or a zone reboot for every HP tweak.
+        Builder / Tier Factory stamp the same JSON kit onto many zone ids.
+        Preview in Spire, write files, Apply — iterate a zone the way you iterate a quest script, instead of hand-editing vanilla <code>npc_types</code>.
+      </p>
+      <p class="note">
+        This is why the pack ships the live <code>zone_controller.pl</code>, not a stub. Spire’s Zone Controller page only writes JSON.
+        Without this script in <code>quests/global/</code>, Apply has nothing to poll and the zone keeps stock stats.
       </p>
 
       <h3 class="tree-title" id="zc-requirements">Requirements</h3>
